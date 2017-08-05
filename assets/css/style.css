@@ -1,0 +1,67 @@
+body {
+	background-image: url("../images/background.png")
+}
+
+h1 {
+	text-align: right;
+	color: white;
+}	
+
+h2 {
+	color: red;
+	margin-left: 45px;
+
+}
+
+
+img {
+	text-align: center;
+	width: 120px;
+
+}
+
+li {
+	display: inline-block;
+}
+
+.panel {
+	width: 150px;
+}
+
+.imgBodyGood {
+	width: 150px;
+	background-color: green;
+	text-align: center;
+	margin-left: 45px;
+	border-radius: 3px;
+}
+
+.imgBodyBad {
+	width: 150px;
+	background-color: red;
+	text-align: center;
+	margin-left: 45px;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+#characters {
+	text-align: center;
+	margin-right: 45px;
+}
+
+.container {
+	/*margin: 40px;*/
+	color: white;
+}
+
+.panel-default {
+	margin: 10px;
+}
+
+.panel-footer {
+	color: black;
+}
+
+
+
