@@ -8,28 +8,41 @@ h1 {
 }	
 
 h2 {
-	color: red;
+	color: white;
 	margin-left: 45px;
 
 }
 
+p {
+	font-size: 20px;
+	margin-left: 45px;
+}
+
 
 img {
-	text-align: center;
-	width: 120px;
+	/*text-align: center;*/
+	width: 100px;
 
 }
 
 li {
 	display: inline-block;
+	/*background-color: blue;*/
+}
+
+
+
+#attackButton {
+	background-color: black;
+	margin-left: 45px;
 }
 
 .panel {
-	width: 150px;
+	width: 130px;
 }
 
 .imgBodyGood {
-	width: 150px;
+	width: 130px;
 	background-color: green;
 	text-align: center;
 	margin-left: 45px;
@@ -37,7 +50,7 @@ li {
 }
 
 .imgBodyBad {
-	width: 150px;
+	width: 130px;
 	background-color: red;
 	text-align: center;
 	margin-left: 45px;
@@ -62,6 +75,8 @@ li {
 .panel-footer {
 	color: black;
 }
+
+
 
 
 
