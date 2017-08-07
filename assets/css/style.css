@@ -33,7 +33,6 @@ li {
 
 
 #attackButton {
-	background-color: black;
 	margin-left: 45px;
 }
 
@@ -74,6 +73,10 @@ li {
 
 .panel-footer {
 	color: black;
+}
+
+.dead {
+	display: none;
 }
 
 

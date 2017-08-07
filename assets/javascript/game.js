@@ -11,29 +11,29 @@ $(document).ready(function() {
       ron = {
           name: "Ron",
           hp: 110,
-          attack: 12,
-          cAttack: 8,
+          attack: 6,
+          countattack: 8,
       }, 
 
       brian = {
           name: "Brian",
           hp: 95,
-          attack: 9,
-          cAttack: 9,
+          attack: 7,
+          countattack: 9,
       }, 
 
       champ = {
           name: "Champ",
           hp: 125,
           attack: 8,
-          cAttack: 6,
+          countattack: 6,
       }, 
 
       brick = {
           name: "Brick",
           hp: 115,
-          attack: 15,
-          cAttack: 12,
+          attack: 4,
+          countattack: 11,
       }
   ];
 
@@ -194,18 +194,86 @@ $(document).ready(function() {
 
 	function fight() {
 
-		console.log("Start FIght");
+		console.log("Start Fight");
 		console.log("Hero HP: " + hero.hp);
 		console.log("Defender HP: " + defender.hp);
 
 		$("#attackButton").on("click", function () {
 
-		$("#yourCharacter").append("<p>" + hero.name + " attacks " + defender.name + " for " + hero.attack + " damage, but receives " + defender.attack + " damage!</p>");
+		$("#yourCharacter p").last().remove();
+		$("#yourCharacter").append("<p>" + hero.name + " attacks " + defender.name + " for " + hero.attack + " damage, but receives " + defender.countattack + " damage!</p>");
+
+		hero.hp -= defender.countattack
+
+		console.log("heros new HP: " + hero.hp);
+		console.log("heros base attack: " + hero.attack);
+
+		defender.hp -= hero.attack
+
+		console.log("enemys new HP: " + defender.hp);
+
+		hero.attack = hero.attack + hero.attack
+
+		console.log("heroes new attack: " + hero.attack);
+
+		$("#ronHP").html("HP: " + ron.hp);
+		$("#brianHP").html("HP: " + brian.hp);
+		$("#champHP").html("HP: " + champ.hp);
+		$("#brickHP").html("HP: " + brick.hp);
+
+		checkStatus();
 
 		});
 
 	};
 
+
+// FUNCTION CHECK STATUS =====================================================================
+
+	function checkStatus() {
+
+		if (defender.hp <= 0) {
+
+			if(ron.hp <= 0 ) {
+				console.log("RON DIED");
+				$("#ronB").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+			}
+
+			if(brian.hp <= 0 ) {
+				console.log("BRIAN DIED");
+				$("#brianF").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+			}
+
+			if(champ.hp <= 0 ) {
+				console.log("RON DIED");
+				$("#champK").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+			}
+
+			if(brick.hp <= 0 ) {
+				console.log("RON DIED");
+				$("#brickT").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+			}
+
+		selectNewDefender();
+			
+		}
+	};
+
+
+// FUNCTION SELECT NEW DEFENDER ==============================================================
+
+	function selectNewDefender() {
+
+		
+	};
 
 
 // RUNS GAME =================================================================================
