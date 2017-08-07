@@ -2,11 +2,6 @@
 
 $(document).ready(function() {
 
-// characters have 3 attributes:
-// HP
-// AP
-// CAP
-
 	var allCharacters = [
 		ron = {
 			name: "Ron",
@@ -330,21 +325,49 @@ $(document).ready(function() {
 			console.log("YOU WIN");
 			$("#yourCharacter p").last().remove();
 			$("#yourCharacter").append("<p><strong>" + hero.name + " is victorious!</strong></p>");
+			$("#enemyCharacter").attr("class", "dead");
+			$("#attackArea").attr("class", "dead");
+			$("#defenderArea").attr("class", "dead");
+			$("#yourCharacter").append("<h1>Press spacebar to play again!</h1>");
+
+			
+
+			reset();
 
 		}
-
-
-
-		
 	};
 
 //FUNCTION RESET ======================================================================================
 
-function reset() {
+function reset () {
+        $(window).keyup(function(event) {
 
+            if (event.keyCode === 32) {
 
+            	console.log("spacebar was pressed");
 
-	};
+            	$("#enemyCharacter").attr("class", "alive");
+				$("#attackArea").attr("class", "alive");
+				$("#defenderArea").attr("class", "alive");
+
+				$("#yourCharacter p").last().remove();
+
+                $("#ronB, #brianF, #champK, #brickT").appendTo("#characters").attr("class", "panel panel-default characters");
+
+                victories = 0;
+
+                console.log("victories: " + victories);
+
+                defender = [];
+                mainChar = [];
+                heroChosen = false;
+                counter = 0;
+
+                pickHero();
+            }
+        })
+
+        };
 
 
 
