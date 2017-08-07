@@ -7,35 +7,39 @@ $(document).ready(function() {
 // AP
 // CAP
 
-  var allCharacters = [
-      ron = {
-          name: "Ron",
-          hp: 110,
-          attack: 6,
-          countattack: 8,
-      }, 
+	var allCharacters = [
+		ron = {
+			name: "Ron",
+			hp: 110,
+			baseattack: 6,
+			attack: 6,
+			countattack: 8,
+		}, 
 
-      brian = {
-          name: "Brian",
-          hp: 95,
-          attack: 7,
-          countattack: 9,
-      }, 
+		brian = {
+			name: "Brian",
+			hp: 95,
+			baseattack: 7,
+			attack: 7,
+			countattack: 9,
+		}, 
 
-      champ = {
-          name: "Champ",
-          hp: 125,
-          attack: 8,
-          countattack: 6,
-      }, 
+		champ = {
+			name: "Champ",
+			hp: 125,
+			baseattack: 8,
+			attack: 8,
+			countattack: 6,
+		}, 
 
-      brick = {
-          name: "Brick",
-          hp: 115,
-          attack: 4,
-          countattack: 11,
-      }
-  ];
+		brick = {
+			name: "Brick",
+			hp: 115,
+			baseattack: 4,
+			attack: 4,
+			countattack: 11,
+		}
+	];
 
   	$("#ronHP").html("HP: " + ron.hp);
     $("#brianHP").html("HP: " + brian.hp);
@@ -49,6 +53,11 @@ $(document).ready(function() {
     var heroChosen = false;
     var enemyChosen = false;
     var defender = [];
+    var victories = 0;
+    var ronAlive = true;
+    var brianAlive = true;
+    var champAlive = true;
+    var brickAlive = true;
 
 
 
@@ -141,7 +150,7 @@ $(document).ready(function() {
 	            	console.log("You chose Ron");
 	                $("#ronB").appendTo("#defenderArea");
 	                defender = ron;
-	                console.log("defender: " + defender);
+	                // console.log("defender: " + defender);
 	                enemyChosen = true;
 	                fight();
 	            }
@@ -154,7 +163,7 @@ $(document).ready(function() {
 	            	console.log("You chose Brian");
 	                $("#brianF").appendTo("#defenderArea");
 	                defender = brian;
-	                console.log("defender: " + defender);
+	                // console.log("defender: " + defender);
 	                enemyChosen = true;
 	                fight();
 	            }
@@ -167,7 +176,7 @@ $(document).ready(function() {
 	            	console.log("You chose Champ");
 	                $("#champK").appendTo("#defenderArea");
 	                defender = champ;
-	                console.log("defender: " + defender);
+	                // console.log("defender: " + defender);
 	                enemyChosen = true;
 	                fight();
 	            }
@@ -180,12 +189,14 @@ $(document).ready(function() {
 	            	console.log("You chose Brick");
 	                $("#brickT").appendTo("#defenderArea");
 	                defender = brick;
-	                console.log("defender: " + defender);
+	                // console.log("defender: " + defender);
 	                enemyChosen = true;
 	                fight();
 	            }
 	            
 	        }));	
+
+		
 
     };
 
@@ -205,16 +216,15 @@ $(document).ready(function() {
 
 		hero.hp -= defender.countattack
 
-		console.log("heros new HP: " + hero.hp);
-		console.log("heros base attack: " + hero.attack);
+		// console.log("heros new HP: " + hero.hp);
 
 		defender.hp -= hero.attack
 
-		console.log("enemys new HP: " + defender.hp);
+		// console.log("enemys new HP: " + defender.hp);
 
-		hero.attack = hero.attack + hero.attack
+		hero.attack = hero.attack + hero.baseattack
 
-		console.log("heroes new attack: " + hero.attack);
+		// console.log("heroes new attack: " + hero.attack);
 
 		$("#ronHP").html("HP: " + ron.hp);
 		$("#brianHP").html("HP: " + brian.hp);
@@ -232,48 +242,110 @@ $(document).ready(function() {
 
 	function checkStatus() {
 
-		if (defender.hp <= 0) {
+		if (defender.hp <= 0 && victories < 3) {
 
-			if(ron.hp <= 0 ) {
+			if (ron.hp <= 0 && ronAlive == true) {
 				console.log("RON DIED");
 				$("#ronB").attr("class", "dead");
 				$("#yourCharacter p").last().remove();
 				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+				enemyChosen = false;
+				victories++;
+				ronAlive = false;
 			}
 
-			if(brian.hp <= 0 ) {
+			if (brian.hp <= 0 && brianAlive == true) {
 				console.log("BRIAN DIED");
 				$("#brianF").attr("class", "dead");
 				$("#yourCharacter p").last().remove();
 				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+				enemyChosen = false;
+				victories++;
+				brianAlive = false;
 			}
 
-			if(champ.hp <= 0 ) {
-				console.log("RON DIED");
+			if (champ.hp <= 0 && champAlive == true) {
+				console.log("CHAMP DIED");
 				$("#champK").attr("class", "dead");
 				$("#yourCharacter p").last().remove();
 				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+				enemyChosen = false;
+				victories++;
+				champAlive = false;
 			}
 
-			if(brick.hp <= 0 ) {
-				console.log("RON DIED");
+			if (brick.hp <= 0 && brickAlive == true) {
+				console.log("BRICK DIED");
 				$("#brickT").attr("class", "dead");
 				$("#yourCharacter p").last().remove();
 				$("#yourCharacter").append("<p>" + defender.name + " was defeated, select another player</p>");
+				enemyChosen = false;
+				victories++;
+				brickAlive = false;
 			}
 
-		selectNewDefender();
+
+		console.log("Victories: " + victories);	
+		
+
+		// needs to be true to run pick enemy again	
+		// console.log("hero chosen? " + heroChosen);
+		// needs to be false to run pick enemy again
+		// console.log("enemy chosen? " + enemyChosen);
+
+		pickEnemy();
 			
+		} else if (hero.hp <= 0) {
+
+			if (ron.hp <= 0) {
+				console.log("Hero has been defeated");
+				$("#ronB").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + hero.name + " was defeated, game over!</p>");
+			}
+
+			if (brian.hp <= 0) {
+				console.log("Hero has been defeated");
+				$("#brianF").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, game over!</p>");
+			}
+
+			if (champ.hp <= 0) {
+				console.log("Hero has been defeated");
+				$("#champK").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, game over!</p>");
+			}
+
+			if (brick.hp <= 0) {
+				console.log("Hero has been defeated");
+				$("#brickT").attr("class", "dead");
+				$("#yourCharacter p").last().remove();
+				$("#yourCharacter").append("<p>" + defender.name + " was defeated, game over!</p>");
+			}
+
+		} else if (victories === 3) {
+
+			console.log("YOU WIN");
+			$("#yourCharacter p").last().remove();
+			$("#yourCharacter").append("<p><strong>" + hero.name + " is victorious!</strong></p>");
+
 		}
-	};
 
 
-// FUNCTION SELECT NEW DEFENDER ==============================================================
-
-	function selectNewDefender() {
 
 		
 	};
+
+//FUNCTION RESET ======================================================================================
+
+function reset() {
+
+
+
+	};
+
 
 
 // RUNS GAME =================================================================================
@@ -283,59 +355,3 @@ $(document).ready(function() {
 
 });
 
-
-
-
-
-
-// AP =+ AP after each attack
-
-// enemy only uses CAP and value never changes
-
-// 
-
-
-
-
-// choose image and make hero
-
-// move other images below
-
-// user selects enemy
-
-// move enemy to defender area
-
-// click attack button
-
-// hero attacks enemy and HP is updated under player
-
-// enemy attacks user and HP is updated under player
-
-// when user or enemy HP is 0, remove enemy from defender area
-
-// user selects a new opponet
-
-// user wins by defeating all 3 enemys
-
-
-
-
-
-
-
-// FUNCTIONS ON-CLICK ==================================================
-
-// click images and try to get userNumbers to add up to computerNumber 
-	// $("#button1").on("click", function() {
-
-	// 	score += crystal1;
-	// 	$("#userNumber").html("User: " + score);
-	// 	console.log("crystal 1: " + crystal1);
-	// 	console.log("my score: " + score);
-
-	// 	if (score === computerPick) {
-	// 		winner();
-	// 	} else if (score > computerPick) {
-	// 		loser();
-	// 	}
-	// });
