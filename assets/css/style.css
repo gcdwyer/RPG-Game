@@ -10,7 +10,6 @@ h1 {
 h2 {
 	color: white;
 	margin-left: 45px;
-
 }
 
 p {
@@ -18,11 +17,8 @@ p {
 	margin-left: 45px;
 }
 
-
 img {
-	/*text-align: center;*/
 	width: 100px;
-
 }
 
 li {
@@ -30,10 +26,24 @@ li {
 	/*background-color: blue;*/
 }
 
-
-
 #attackButton {
 	margin-left: 45px;
+	margin-top: 10px;
+}
+
+#yourCharacter {
+	border-style: dotted;
+	padding-bottom: 20px;
+}
+
+#enemyCharacter {
+	border-style: dotted;
+	padding-bottom: 20px;
+}
+
+#defenderArea {
+	border-style: dotted;
+	padding-bottom: 20px;
 }
 
 .panel {
@@ -64,7 +74,6 @@ li {
 }
 
 .container {
-	/*margin: 40px;*/
 	color: white;
 }
 
@@ -81,7 +90,6 @@ li {
 }
 
 .alive {
-
 	display: block;
 
 }

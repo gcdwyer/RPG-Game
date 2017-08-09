@@ -44,13 +44,12 @@ $(document).ready(function() {
     $("#brickHP").html("HP: " + brick.hp);
 
 
-    var hero = {};
-    var enemy;
+    var hero = [];
+    var defender = [];
     var counter = 0;
+    var victories = 0;
     var heroChosen = false;
     var enemyChosen = false;
-    var defender = [];
-    var victories = 0;
     var ronAlive = true;
     var brianAlive = true;
     var champAlive = true;
@@ -63,6 +62,9 @@ $(document).ready(function() {
 	// function used to pick the hero
 	function pickHero() {
 
+		// displays text to click a hero
+		$("#nestedYourCharacter").append("<p>Please click on the character you woule like to be</p>");
+
 		$(".characters").on("click", function () {
 			// determines if hero has been chosen has been picked yet
 			if (heroChosen == false && counter === 0) {
@@ -72,6 +74,8 @@ $(document).ready(function() {
 				counter++;
 				// variable gets assigned the id of character clicked
 				var heroPicked = $(this).attr("id");
+				// removes text to click a hero after hero is selected
+				$("#nestedYourCharacter p").last().remove();
 				// if user selects Ron
 				if (heroPicked === "ronB") {
 					console.log ("You picked:" + heroPicked);
@@ -133,69 +137,101 @@ $(document).ready(function() {
 	// function used to select oponents
 	function pickEnemy() {
 
+		// displays text to click an enemy
+		$("#nestedDefenderArea").append("<p>Please click on the enemy you woule like to attack</p>");
+
 		// if ron is clicked:
-		if ($("#ronB").on("click", function () {
+		$("#ronB").on("click", function () {
 			// if hero is already chosen but enemy has not
             if (heroChosen == true && enemyChosen == false) {
             	console.log("You chose Ron");
             	//redraw enemy to defender area
                 $("#ronB").appendTo("#defenderArea");
+
+                if (victoies === 3) {
+	                // removes text to click a enemy after enemy is selected
+					$("#nestedDefenderArea p").last().remove();
+				};
+
                 // sets defender to ron
                 defender = ron;
                 // enemy has been chosen
                 enemyChosen = true;
+                // hides enemies pane if last character is picked
+                if (victories === 2) {
+                	$("#enemyCharacter").attr("class", "dead");
+                }
+                
                 // runs next function
                 fight();
             }
-        }));
+        });
 
 		// if brian is clicked:
-		if ($("#brianF").on("click", function () {
+		$("#brianF").on("click", function () {
 			// if hero is already chosen but enemy has not	
             if (heroChosen == true && enemyChosen == false) {
             	console.log("You chose Brian");
             	//redraw enemy to defender area
                 $("#brianF").appendTo("#defenderArea");
+                // removes text to click a enemy after enemy is selected
+				$("#nestedDefenderArea p").last().remove();
                 // sets defender to brian
                 defender = brian;
                 // enemy has been chosen
                 enemyChosen = true;
+                // hides enemies pane if last character is picked
+                if (victories === 2) {
+                	$("#enemyCharacter").attr("class", "dead");
+                }
                 // runs next function
                 fight();
             }
-        }));	
+        });	
 
 		// if champ is clicked:
-		if ($("#champK").on("click", function () {
+		$("#champK").on("click", function () {
 			// if hero is already chosen but enemy has not
             if (heroChosen == true && enemyChosen == false) {
             	console.log("You chose Champ");
             	//redraw enemy to defender area
                 $("#champK").appendTo("#defenderArea");
+                // removes text to click a enemy after enemy is selected
+				$("#nestedDefenderArea p").last().remove();
                 // sets defender to champ
                 defender = champ;
                 // enemy has been chosen
                 enemyChosen = true;
+                // hides enemies pane if last character is picked
+                if (victories === 2) {
+                	$("#enemyCharacter").attr("class", "dead");
+                }
                 // runs next function
                 fight();
             }
-        }));	
+        });	
 
 		// if brick is clicked:
-		if ($("#brickT").on("click", function () {
+		$("#brickT").on("click", function () {
 			// if hero is already chosen but enemy has not
             if (heroChosen == true && enemyChosen == false) {
             	console.log("You chose Brick");
             	//redraw enemy to defender area
                 $("#brickT").appendTo("#defenderArea");
+                // removes text to click a enemy after enemy is selected
+				$("#nestedDefenderArea p").last().remove();
                 // sets defender to brick
                 defender = brick;
                 // enemy has been chosen
                 enemyChosen = true;
+                // hides enemies pane if last character is picked
+                if (victories === 2) {
+                	$("#enemyCharacter").attr("class", "dead");
+                }
                 // runs next function
                 fight();
             }
-        }));	
+        });	
     };
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>TBD Game</title>
+	<title>Anchorman Game</title>
 		
 	<!-- jQuery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,7 +26,7 @@
 	                <div class="panel-body">
 	                    <img src="assets/images/Ron.png">
 	                </div>
-	                <div class="panel-footer" id="ronHP">HP: </div>
+	                <div class="panel-footer" id="ronHP"></div>
 	            </div>
 	        </li>
 	        <li>
@@ -61,6 +61,14 @@
 
 	<div id="yourCharacter">
 		<h2>Your Character:</h2>
+		<div id="nestedYourCharacter" style="color:yellow">
+		</div>
+	</div>
+
+	<div id="defenderArea">
+		<h2>Defender:</h2>
+		<div id="nestedDefenderArea" style="color:yellow">
+		</div>
 	</div>
 
 	<div id="enemyCharacter">
@@ -68,13 +76,10 @@
 	</div>
 
 	<div id="attackArea">
-		<h2>Fight Area</h2>
 		<button type="button" id="attackButton" class="btn btn-danger">Attack!</button>
 	</div>
 
-	<div id="defenderArea">
-		<h2>Defender:</h2>
-	</div>
+	
 
 <!-- 	<div id="resetArea">
 		<button type="button" class="btn btn-default">Reset</button>
