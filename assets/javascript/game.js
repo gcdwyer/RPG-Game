@@ -137,22 +137,22 @@ $(document).ready(function() {
 	// function used to select oponents
 	function pickEnemy() {
 
+		// if a character hasnt been chosen
+		if (enemyChosen == false) {
 		// displays text to click an enemy
 		$("#nestedDefenderArea").append("<p>Please click on the enemy you woule like to attack</p>");
-
-		// if ron is clicked:
+		}
+		// if victories = 3, recheck status for win
+		if (victories === 3) {
+			checkStatus();
+		}
+		// ron is clicked:
 		$("#ronB").on("click", function () {
 			// if hero is already chosen but enemy has not
             if (heroChosen == true && enemyChosen == false) {
             	console.log("You chose Ron");
             	//redraw enemy to defender area
                 $("#ronB").appendTo("#defenderArea");
-
-                if (victoies === 3) {
-	                // removes text to click a enemy after enemy is selected
-					$("#nestedDefenderArea p").last().remove();
-				};
-
                 // sets defender to ron
                 defender = ron;
                 // enemy has been chosen
@@ -167,7 +167,7 @@ $(document).ready(function() {
             }
         });
 
-		// if brian is clicked:
+		// brian is clicked:
 		$("#brianF").on("click", function () {
 			// if hero is already chosen but enemy has not	
             if (heroChosen == true && enemyChosen == false) {
@@ -189,7 +189,7 @@ $(document).ready(function() {
             }
         });	
 
-		// if champ is clicked:
+		// champ is clicked:
 		$("#champK").on("click", function () {
 			// if hero is already chosen but enemy has not
             if (heroChosen == true && enemyChosen == false) {
@@ -211,7 +211,7 @@ $(document).ready(function() {
             }
         });	
 
-		// if brick is clicked:
+		// brick is clicked:
 		$("#brickT").on("click", function () {
 			// if hero is already chosen but enemy has not
             if (heroChosen == true && enemyChosen == false) {
@@ -289,6 +289,7 @@ $(document).ready(function() {
 				enemyChosen = false;
 				victories++;
 				ronAlive = false;
+				console.log("enemyChosen: " + enemyChosen);
 			}
 
 			// if defende died was brian
@@ -304,6 +305,7 @@ $(document).ready(function() {
 				enemyChosen = false;
 				victories++;
 				brianAlive = false;
+				console.log("enemyChosen: " + enemyChosen);
 			}
 
 			// if defende died was champ
@@ -319,6 +321,7 @@ $(document).ready(function() {
 				enemyChosen = false;
 				victories++;
 				champAlive = false;
+				console.log("enemyChosen: " + enemyChosen);
 			}
 
 			// if defende died was brick
@@ -334,9 +337,13 @@ $(document).ready(function() {
 				enemyChosen = false;
 				victories++;
 				brickAlive = false;
+				console.log("enemyChosen: " + enemyChosen);
 			}
 
 		console.log("Victories: " + victories);	
+
+		$("#nestedDefenderArea p").last().remove();
+
 		
 		// needs to be true to run pick enemy again	
 		// console.log("hero chosen? " + heroChosen);
