@@ -4,7 +4,7 @@ body {
 
 h1 {
 	text-align: center;
-	background-color: red;
+	/*background-color: red;*/
 }	
 
 h3 {
@@ -16,28 +16,36 @@ button{
     margin-left: 40px; 
 }
 
+#p1, #p2, #p3, #p4, #p5, #p6, #c1, #c2, #c3, #c4, #c5, #c6 {
+	border-style: solid;
+	width: 30px;
+	height:30px;
+	text-align: center;
+
+}
+
 #test1 {
-	background-color: green;
+	/*background-color: green;*/
 }
 
 #test2 {
-	background-color: green;
+	/*background-color: green;*/
 }
 
 #test3 {
-	background-color: green;
+	/*background-color: green;*/
 }
 
 #test4 {
-	background-color: red;
+	/*background-color: red;*/
 }
 
 #test5 {
-	background-color: red;
+	/*background-color: red;*/
 }
 
 #test6 {
-	background-color: red;
+	/*background-color: red;*/
 }
 
 

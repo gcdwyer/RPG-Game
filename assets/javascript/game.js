@@ -5,12 +5,13 @@ $(document).ready(function() {
 	var suites = ["hearts", "diamonds", "spades", "clubs"];
 	var names = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "jack", "queen", "king"];
 	var hit = 0;
+	var stay = 0;
 
 	function dealCards() {
 
 		// DEALER ========================================================
-		var compRandom = Math.floor(Math.random() * 13) +1;
-		var compRandom2 = Math.floor(Math.random() * 13) +1;
+		compRandom = Math.floor(Math.random() * 13) +1;
+		compRandom2 = Math.floor(Math.random() * 13) +1;
 		if (compRandom > 10) {
 			compRandom = 10;
 		}
@@ -26,8 +27,8 @@ $(document).ready(function() {
 		$("#c2").html("?");
 
 		// Player ========================================================
-		var playerRandom = Math.floor(Math.random() * 13) +1;
-		var playerRandom2 = Math.floor(Math.random() * 13) +1;
+		playerRandom = Math.floor(Math.random() * 13) +1;
+		playerRandom2 = Math.floor(Math.random() * 13) +1;
 		if (playerRandom > 10) {
 			playerRandom = 10;
 		}
@@ -46,17 +47,63 @@ $(document).ready(function() {
 	// STAY ===========================================================
 	$("#stay").on("click", function() {
 		console.log("Stay Clicked");
-		while (compTotal < 17) {
-			var compRandom3 = Math.floor(Math.random() * 13) +1;
+		$("#c2").html(compRandom2);
+
+
+		if (stay === 0 && compTotal < 17) {
+			console.log("11111111111111111111");
+			compRandom3 = Math.floor(Math.random() * 13) +1;
 			if (compRandom3 > 10) {
 				compRandom3 = 10;
 			}
-			console.log(compRandom3);
+			console.log("compRandom3: " + compRandom3);
 			compTotal = compTotal + compRandom3;
-			console.log("new comp total: " + compTotal);
-			console.log("player total: " + playerTotal);
-		} 
+			console.log("compTotal: " + compTotal);
+			$("#c3").html(compRandom3);
+			stay++;
+		}
+
+		console.log("stay: " + stay);
+		if (stay === 1 && compTotal < 17) {
+			console.log("22222222222222222222222");
+			compRandom4 = Math.floor(Math.random() * 13) +1;
+			if (compRandom4 > 10) {
+				compRandom4 = 10;
+			}
+			console.log("compRandom4: " + compRandom4);
+			compTotal = compTotal + compRandom4;
+			console.log("compTotal: " + compTotal);
+			$("#c4").html(compRandom4);
+			stay++;
+		}
+
+		console.log("stay: " + stay);
+		if (stay === 2 && compTotal < 17) {
+			console.log("3333333333333333333333333");
+			compRandom5 = Math.floor(Math.random() * 13) +1;
+			if (compRandom5 > 10) {
+				compRandom5 = 10;
+			}
+			console.log("compRandom4: " + compRandom4);
+			compTotal = compTotal + compRandom5;
+			console.log("compTotal: " + compTotal);
+			$("#c5").html(compRandom5);
+			stay++;
+		}
+
+		$("#dealer").html("<h3>Dealer: " + compTotal + "</h3>");
 		checkStatus();
+
+		// $("#c2").html(compRandom2);
+		// while (compTotal < 17) {
+		// 	compRandom3 = Math.floor(Math.random() * 13) +1;
+		// 	if (compRandom3 > 10) {
+		// 		compRandom3 = 10;
+		// 	}
+		// 	$("#c3").html(compRandom3);
+		// 	compTotal = compTotal + compRandom3;
+		// 	$("#dealer").html("<h3>Dealer: " + compTotal + "</h3>");
+		// } 
 	});
 
 
@@ -141,27 +188,45 @@ $(document).ready(function() {
 
 	function checkStatus() {
 
+		$("#status").show();
+
 		console.log("================ Check Status ===================");
 		if (compTotal > 21) {
 			console.log("Computer Busts");
+			$("#status").html("<h1>Computer Busts</h1>");
 		} 
 		else if (playerTotal > 21) {
 			console.log("Player Busts");
+			$("#status").html("<h1>Player Busts</h1>");
 		}
 		else if (playerTotal === compTotal) {
 			console.log("Tie");
+			$("#status").html("<h1>Tie</h1>");
 		}
 		else if (playerTotal > compTotal) {
 			console.log("Player Wins");
+			$("#status").html("<h1>Player Wins</h1>");
 		}
 		else if (playerTotal < compTotal) {
-			console.log ("Computer Wins");
+			console.log ("Dealer Wins");
+			$("#status").html("<h1>Dealer Wins</h1>");
 		}
 	}
 
 	// RESET ===========================================================
 	$("#reset").on("click", function() {
 		console.log("Reset Clicked");
+		$("#status").hide();
+		stay = 0;
+		hit = 0;
+		$("#p3").html("");
+		$("#p4").html("");
+		$("#p5").html("");
+		$("#p6").html("");
+		$("#c3").html("");
+		$("#c4").html("");
+		$("#c5").html("");
+		$("#c6").html("");
 		dealCards();
 	});
 
