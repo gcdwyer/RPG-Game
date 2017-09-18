@@ -1,98 +1,44 @@
 body {
-	background-image: url("../images/background.png")
+	/*background-image: url("../images/background.png")*/
 }
 
 h1 {
-	text-align: right;
-	color: white;
+	text-align: center;
+	background-color: red;
 }	
 
-h2 {
-	color: white;
-	margin-left: 45px;
+h3 {
+	text-align: center;
 }
 
-p {
-	font-size: 20px;
-	margin-left: 45px;
+button{
+    margin: 0 auto;
 }
 
-img {
-	width: 100px;
-}
-
-li {
-	display: inline-block;
-	/*background-color: blue;*/
-}
-
-#attackButton {
-	margin-left: 45px;
-	margin-top: 10px;
-}
-
-#yourCharacter {
-	border-style: dotted;
-	padding-bottom: 20px;
-}
-
-#enemyCharacter {
-	border-style: dotted;
-	padding-bottom: 20px;
-}
-
-#defenderArea {
-	border-style: dotted;
-	padding-bottom: 20px;
-}
-
-.panel {
-	width: 130px;
-}
-
-.imgBodyGood {
-	width: 130px;
+#test1 {
 	background-color: green;
-	text-align: center;
-	margin-left: 45px;
-	border-radius: 3px;
 }
 
-.imgBodyBad {
-	width: 130px;
+#test2 {
+	background-color: green;
+}
+
+#test3 {
+	background-color: green;
+}
+
+#test4 {
 	background-color: red;
-	text-align: center;
-	margin-left: 45px;
-	border-radius: 3px;
-	display: inline-block;
 }
 
-#characters {
-	text-align: center;
-	margin-right: 45px;
-	display: flex;
+#test5 {
+	background-color: red;
 }
 
-.container {
-	color: white;
+#test6 {
+	background-color: red;
 }
 
-.panel-default {
-	margin: 10px;
-}
-
-.panel-footer {
-	color: black;
-}
-
-.dead {
-	display: none;
-}
-
-.alive {
-	display: block;
-
-}
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Anchorman Game</title>
+	<title>Blackjack</title>
 		
 	<!-- jQuery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,78 +14,78 @@
 </head>
 <body>
 
-<div class="container">
-
-	<h1>Anchorman RPG</h1>
-
-	<div id="characters">
-	    <ul>
-	        <li>
-	            <div class="panel panel-default characters" id="ronB">
-	                <div class="panel-heading">Ron Burgundy</div>
-	                <div class="panel-body">
-	                    <img src="assets/images/Ron.png">
-	                </div>
-	                <div class="panel-footer" id="ronHP"></div>
-	            </div>
-	        </li>
-	        <li>
-	            <div class="panel panel-default characters" id="brianF">
-	                <div class="panel-heading">Brian Fantana</div>
-	                <div class="panel-body">
-	                    <img src="assets/images/Brian.png">
-	                </div>
-	                <div class="panel-footer" id="brianHP">HP: </div>
-	            </div>
-	        </li>
-	        <li>
-	            <div class="panel panel-default characters"  id="champK">
-	                <div class="panel-heading">Champ Kind</div>
-	                    <div class="panel-body">
-	                        <img src="assets/images/Champ.png">
-	                    </div>
-	                <div class="panel-footer" id="champHP">HP: </div>
-	            </div>
-	        </li>
-	        <li>
-	            <div class="panel panel-default characters" id="brickT">
-	                <div class="panel-heading">Brick Tamland</div>
-	                    <div class="panel-body">
-	                        <img src="assets/images/Brick.png">
-	                    </div>
-	                <div class="panel-footer" id="brickHP">HP: </div>
-	            </div>
-	        </li>
-	    </ul>
-	</div>
-
-	<div id="yourCharacter">
-		<h2>Your Character:</h2>
-		<div id="nestedYourCharacter" style="color:yellow">
-		</div>
-	</div>
-
-	<div id="defenderArea">
-		<h2>Defender:</h2>
-		<div id="nestedDefenderArea" style="color:yellow">
-		</div>
-	</div>
-
-	<div id="enemyCharacter">
-		<h2>Enemies Available to Attack:</h2>
-	</div>
-
-	<div id="attackArea">
-		<button type="button" id="attackButton" class="btn btn-danger">Attack!</button>
-	</div>
-
+<div class = container>
+		
 	
+		<div class="page-header">
+  			<h1>Blackjack</h1>
+		</div>
 
-<!-- 	<div id="resetArea">
-		<button type="button" class="btn btn-default">Reset</button>
-	</div> -->
+		<!-- Dealer -->
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 box">
+				<div id="dealer">
+					<h3>Dealer</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 box">
+				<div id="test1">
+					Test1
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 box">
+				<div id="test2">
+					Test2
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 box">
+				<div id="test3">
+					Test3
+				</div>
+			</div>
+		</div>
 
-</div>
+		<br><br><br><br>
+
+		<!-- Player -->
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 box">
+				<div id="player">
+					<h3>Player</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 box">
+				<div id="test4">
+					Test4
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 box">
+				<div id="test5">
+					Test5
+				</div>
+				<div id="hit">
+					<button type="button" id="hit" class="btn btn-default">Hit</button>
+					<button type="button" id="stay" class="btn btn-default">Stay</button>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 box">
+				<div id="test6">
+					Test6
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 box">
+				
+			</div>
+		</div>
+
+
 
 
 <script src="assets/javascript/game.js"></script>
