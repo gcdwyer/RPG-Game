@@ -2,10 +2,44 @@
 
 $(document).ready(function() {
 
-	var suites = ["hearts", "diamonds", "spades", "clubs"];
-	var names = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "jack", "queen", "king"];
+	// var suites = ["hearts", "diamonds", "spades", "clubs"];
+	// var names = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "jack", "queen", "king"];
 	var hit = 0;
 	var stay = 0;
+	var startingBet = 100;
+	$("#deal").hide();
+	$(".money").html("<h1>$" + startingBet + "</h1>");
+	$("#currentBet").html("<h1>Current Bet: $0</h1>");
+
+	// BETS ==============================================================
+
+	function makeBets () {
+
+		console.log("made it to bets");
+		$("#status").html("<h1>Place Your Bets</h1>");
+		$("#hit").hide();
+		$("#stay").hide();
+
+		$(".dollars").on("click", function() {
+
+			betMade = parseInt($(this).val());
+			console.log(betMade);
+			moneyRemaining = startingBet - betMade;
+			console.log("money remaining: " + moneyRemaining);
+			$(".money").html("<h1>$" + moneyRemaining + "</h1>");
+			$("#currentBet").html("<h1>Current Bet: $" + betMade +"</h1>");
+
+		})
+
+		
+
+
+		
+
+
+
+	};
+
 
 	function dealCards() {
 
@@ -49,7 +83,6 @@ $(document).ready(function() {
 		console.log("Stay Clicked");
 		$("#c2").html(compRandom2);
 
-
 		if (stay === 0 && compTotal < 17) {
 			console.log("11111111111111111111");
 			compRandom3 = Math.floor(Math.random() * 13) +1;
@@ -59,6 +92,7 @@ $(document).ready(function() {
 			console.log("compRandom3: " + compRandom3);
 			compTotal = compTotal + compRandom3;
 			console.log("compTotal: " + compTotal);
+			$("#c3").addClass("card");
 			$("#c3").html(compRandom3);
 			stay++;
 		}
@@ -73,6 +107,7 @@ $(document).ready(function() {
 			console.log("compRandom4: " + compRandom4);
 			compTotal = compTotal + compRandom4;
 			console.log("compTotal: " + compTotal);
+			$("#c4").addClass("card");
 			$("#c4").html(compRandom4);
 			stay++;
 		}
@@ -87,23 +122,13 @@ $(document).ready(function() {
 			console.log("compRandom4: " + compRandom4);
 			compTotal = compTotal + compRandom5;
 			console.log("compTotal: " + compTotal);
+			$("#c5").addClass("card");
 			$("#c5").html(compRandom5);
 			stay++;
 		}
 
 		$("#dealer").html("<h3>Dealer: " + compTotal + "</h3>");
 		checkStatus();
-
-		// $("#c2").html(compRandom2);
-		// while (compTotal < 17) {
-		// 	compRandom3 = Math.floor(Math.random() * 13) +1;
-		// 	if (compRandom3 > 10) {
-		// 		compRandom3 = 10;
-		// 	}
-		// 	$("#c3").html(compRandom3);
-		// 	compTotal = compTotal + compRandom3;
-		// 	$("#dealer").html("<h3>Dealer: " + compTotal + "</h3>");
-		// } 
 	});
 
 
@@ -122,6 +147,7 @@ $(document).ready(function() {
 			hit++;
 			console.log("hits: " + hit);
 			$("#p3").html(playerRandom3);
+			$("#p3").addClass("card");
 			$("#player").html("<h3>Player: " + playerTotal + "</h3>");
 			if(playerTotal > 21) {
 				checkStatus();
@@ -140,6 +166,7 @@ $(document).ready(function() {
 			hit++;
 			console.log("hits: " + hit);
 			$("#p4").html(playerRandom4);
+			$("#p4").addClass("card");
 			$("#player").html("<h3>Player: " + playerTotal + "</h3>");
 			if(playerTotal > 21) {
 				checkStatus();
@@ -158,6 +185,7 @@ $(document).ready(function() {
 			hit++;
 			console.log("hits: " + hit);
 			$("#p5").html(playerRandom5);
+			$("#p5").addClass("card");
 			$("#player").html("<h3>Player: " + playerTotal + "</h3>");
 			if(playerTotal > 21) {
 				checkStatus();
@@ -176,6 +204,7 @@ $(document).ready(function() {
 			hit++;
 			console.log("hits: " + hit);
 			$("#p6").html(playerRandom6);
+			$("#p6").addClass("card");
 			$("#player").html("<h3>Player: " + playerTotal + "</h3>");
 			if(playerTotal > 21) {
 				checkStatus();
@@ -188,35 +217,40 @@ $(document).ready(function() {
 
 	function checkStatus() {
 
-		$("#status").show();
+		$("#statusText").show();
 
 		console.log("================ Check Status ===================");
 		if (compTotal > 21) {
 			console.log("Computer Busts");
-			$("#status").html("<h1>Computer Busts</h1>");
+			$("#statusText").html("<h1>You Win!</h1>");
+			$("#deal").show();
 		} 
 		else if (playerTotal > 21) {
 			console.log("Player Busts");
-			$("#status").html("<h1>Player Busts</h1>");
+			$("#statusText").html("<h1>You Lose!</h1>");
+			$("#deal").show();
 		}
 		else if (playerTotal === compTotal) {
 			console.log("Tie");
-			$("#status").html("<h1>Tie</h1>");
+			$("#statusText").html("<h1>Tie</h1>");
+			$("#deal").show();
 		}
 		else if (playerTotal > compTotal) {
 			console.log("Player Wins");
-			$("#status").html("<h1>Player Wins</h1>");
+			$("#statusText").html("<h1>You Win!</h1>");
+			$("#deal").show();
 		}
 		else if (playerTotal < compTotal) {
 			console.log ("Dealer Wins");
-			$("#status").html("<h1>Dealer Wins</h1>");
+			$("#statusText").html("<h1>You Lose!</h1>");
+			$("#deal").show();
 		}
 	}
 
 	// RESET ===========================================================
-	$("#reset").on("click", function() {
+	$("#deal").on("click", function() {
 		console.log("Reset Clicked");
-		$("#status").hide();
+		$("#statusText").hide();
 		stay = 0;
 		hit = 0;
 		$("#p3").html("");
@@ -227,12 +261,19 @@ $(document).ready(function() {
 		$("#c4").html("");
 		$("#c5").html("");
 		$("#c6").html("");
+		$("#p3").removeClass();
+		$("#p4").removeClass();
+		$("#p5").removeClass();
+		$("#p6").removeClass();
+		$("#c3").removeClass();
+		$("#c4").removeClass();
+		$("#c5").removeClass();
+		$("#c6").removeClass();
+		$("#deal").hide();
 		dealCards();
 	});
 
-
 // STARTS GAME =========================================================
-dealCards();	
+makeBets();	
 
 });
-

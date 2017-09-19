@@ -13,43 +13,32 @@ h3 {
 
 button{
 	margin-top: 20px;
-    margin-left: 40px; 
+    margin-left: 12px; 
 }
 
-#p1, #p2, #p3, #p4, #p5, #p6, #c1, #c2, #c3, #c4, #c5, #c6 {
+.card {
 	border-style: solid;
 	width: 30px;
 	height:30px;
 	text-align: center;
-
 }
 
-#test1 {
-	/*background-color: green;*/
+#status {
+	height: 90px;
+	border-style: solid;
+	/*vertical-align: middle;*/
 }
 
-#test2 {
-	/*background-color: green;*/
-}
-
-#test3 {
-	/*background-color: green;*/
-}
-
-#test4 {
-	/*background-color: red;*/
-}
-
-#test5 {
-	/*background-color: red;*/
-}
-
-#test6 {
-	/*background-color: red;*/
+.bet {
+	/*margin:auto 0;*/
+    text-align: center;
+    height: 70px;
 }
 
 
-
+.money {
+	height: 50px;
+}
 
 
 

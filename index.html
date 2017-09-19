@@ -37,23 +37,23 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 box">
 				<div id="test2">
-					<div class="row">
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
-							<div id="c1"></div>
+					<div class="row" style="border-style: dotted">
+						<div class="col-lg-2 col-md-2 col-sm-2">
+							<div id="c1" class="card"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
-							<div id="c2"></div>
+						<div class="col-lg-2 col-md-2 col-sm-2">
+							<div id="c2" class="card"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="c3"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="c4"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="c5"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="c6"></div>
 						</div>
 					</div>
@@ -66,8 +66,18 @@
 			</div>
 		</div>
 
-		<br><br><br>
+		<br><br>
 
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 box">
+				<div id="status">
+					<div id="statusText">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br>
 
 		<!-- Player -->
 		<div class="row">
@@ -80,28 +90,27 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 box">
 				<div id="test4">
-					<!-- Test4 -->
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 box">
 				<div id="test5">
-					<div class="row">
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
-							<div id="p1"></div>
+					<div class="row" style="border-style: dotted">
+						<div class="col-lg-2 col-md-2 col-sm-2">
+							<div id="p1" class="card"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
-							<div id="p2"></div>
+						<div class="col-lg-2 col-md-2 col-sm-2">
+							<div id="p2" class="card"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="p3"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="p4"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="p5"></div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 box">
+						<div class="col-lg-2 col-md-2 col-sm-2">
 							<div id="p6"></div>
 						</div>
 					</div>
@@ -109,6 +118,7 @@
 				<div id="options">
 					<button type="button" id="stay" class="btn btn-default">Stay</button>
 					<button type="button" id="hit" class="btn btn-default">Hit</button>
+					<button type="button" id="deal" class="btn btn-default">Deal</button>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 box">
@@ -118,23 +128,31 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 box">
-				<div class="reset">
-					<button type="button" id="reset" class="btn btn-default">Reset</button>
+		<br><br>
+
+		<div class="row betting">
+			<div class="col-lg-6 col-md-6 col-sm-6" style="border-style: solid">
+				BET
+				<div class="bet">
+					<button type="button" id="oneDollar" value="1" class="btn btn-success dollars">$1</button>
+					<button type="button" id="twoDollar" value="2" class="btn btn-success dollars">$2</button>
+					<button type="button" id="fiveDollar" value="5" class="btn btn-success dollars">$5</button>
+					<button type="button" id="tenDollar" value="10" class="btn btn-success dollars">$10</button>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6" style="border-style: solid">
+				MONEY
+				<div class="money">
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 box">
-				<div id="status">
+			<div class="col-lg-12 col-md-12 col-sm-12" style="border-style: solid">
+				<div id="currentBet">
 				</div>
 			</div>
 		</div>
-
-
-
 
 <script src="assets/javascript/game.js"></script>
 
